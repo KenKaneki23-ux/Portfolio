@@ -151,24 +151,12 @@ header nav .list-dakmode-menu .hamburger .bar, header nav .list-dakmode-menu .ha
   margin: 6px 0;
   transition: 0.4s;
 }
-header nav .list-dakmode-menu .hamburger.active::before {
-  transform: rotate(-45deg) translate(-8px, 5px);
-}
-header nav .list-dakmode-menu .hamburger.active::after {
-  transform: rotate(45deg) translate(-8px, -5px);
-}
-header nav .list-dakmode-menu .hamburger.active .bar {
-  opacity: 0;
-}
 
 .home {
   background: var(--bg-color);
-  position: absolute;
-  top: 0;
+  min-height: 100vh;
   width: 100%;
-  height: 100vh;
-  z-index: -1;
-  padding: 300px 0 50px;
+  padding: 50px 0;
 }
 .home .home-info {
   display: flex;
@@ -209,13 +197,13 @@ header nav .list-dakmode-menu .hamburger.active .bar {
   margin-bottom: 15px;
   text-align: justify;
 }
-.home .home-info .social {
+.home .home-info .left .social {
   display: flex;
   align-items: center;
   gap: 15px;
   margin: 25px 0;
 }
-.home .home-info .social a {
+.home .home-info .left .social a {
   text-decoration: none;
   background: transparent;
   color: var(--color);
@@ -228,21 +216,21 @@ header nav .list-dakmode-menu .hamburger.active .bar {
   transition: 0.4s ease;
   border: 2px solid var(--color);
 }
-.home .home-info .social a i {
+.home .home-info .left .social a i {
   font-size: 20px;
 }
-.home .home-info .social a:hover {
+.home .home-info .left .social a:hover {
   color: #fff;
   background: var(--color);
   transform: translateY(-7px);
 }
-.home .home-info .btn {
+.home .home-info .left .btn {
   display: flex;
   align-items: center;
   gap: 20px;
   margin: 25px 0;
 }
-.home .home-info .btn button {
+.home .home-info .left .btn button {
   font-size: 15px;
   font-weight: 600;
   padding: 12px 24px;
@@ -254,11 +242,163 @@ header nav .list-dakmode-menu .hamburger.active .bar {
   cursor: pointer;
   transition: 0.3s ease-in;
 }
-.home .home-info .btn button:hover {
+.home .home-info .left .btn button:hover {
   color: #fff;
   background: var(--color);
   transform: translateY(-7px);
 }
 .home .right {
   flex: 1;
+}
+.home .right .profile {
+  text-align: right;
+}
+.home .right .profile img {
+  width: 450px;
+  height: 450px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  border: 3px solid var(--color);
+  border-radius: 50%;
+  box-shadow: 0 0 40px var(--color);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.home .right .profile img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 80px var(--color);
+}
+
+@media screen and (max-width: 1280px) {
+  header nav {
+    padding: 0 50px;
+  }
+  header .list-dakmode-menu .hamburger {
+    display: block;
+  }
+  .home {
+    padding: 250px 50px;
+  }
+  .home .home-info .left h1 {
+    font-size: 4em;
+  }
+  .home .home-info .right .profile img {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 992px) {
+  header {
+    background: var(--mob-color);
+    position: sticky;
+    top: 0;
+    z-index: 9;
+  }
+  header nav {
+    padding: 0 50px;
+  }
+  header .list-dakmode-menu ul {
+    position: fixed;
+    top: 89px;
+    right: -100%;
+    max-width: 60%;
+    width: 100%;
+    height: 100vh;
+    background: var(--mob-color);
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px 50px;
+    transition: 0.3s ease;
+  }
+  header .list-dakmode-menu ul li a {
+    font-size: 22px;
+  }
+  header .list-dakmode-menu ul.active {
+    right: 0;
+  }
+  header .list-dakmode-menu .hamburger {
+    display: block;
+  }
+  .home {
+    position: relative;
+    padding: 30px 50px;
+    height: 100%;
+  }
+  .home .home-info {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 50px;
+  }
+  .home .home-info .left {
+    padding-top: 50px;
+  }
+  .home .home-info .left p {
+    width: 100%;
+  }
+  .home .home-info .left .social {
+    display: none;
+  }
+  .home .home-info .right .profile {
+    margin-top: 25px;
+    text-align: center;
+  }
+  .home .home-info .right .profile img {
+    width: 375px;
+    height: 375px;
+    box-shadow: 0 0 30px var(--color);
+  }
+  .home .home-info .right .profile img:hover {
+    box-shadow: 0 0 60px var(--color);
+  }
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    padding: 0 30px;
+  }
+  header nav .list-dakmode-menu ul {
+    padding: 30px 0 0 30px;
+  }
+  header nav .list-dakmode-menu ul li a {
+    font-size: 20px;
+  }
+  .home {
+    padding: 30px;
+  }
+  .home .home-info .left h1 {
+    font-size: 3.6em;
+  }
+  .home .home-info .left h4 {
+    font-size: 1.8em;
+  }
+  .home .home-info .left p {
+    font-size: 14px;
+  }
+  .home .home-info .right .profile img {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 567px) {
+  header nav .logo a {
+    font-size: 28px;
+  }
+  .home .home-info .left h3 {
+    font-size: 2em;
+  }
+  .home .home-info .left h1 {
+    font-size: 2.8em;
+  }
+  .home .home-info .left h4 {
+    font-size: 1.6em;
+  }
+  .home .home-info .left p {
+    font-size: 14px;
+  }
+  .home .home-info .right .profile img {
+    width: 280px;
+    height: 280px;
+  }
 }/*# sourceMappingURL=style.css.map */
